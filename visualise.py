@@ -40,14 +40,16 @@ def main():
     }
 
     avg = {
-        "pydis": dict((k, average(raw["pydis"][k])) for k in titles.keys()),
-        "redis": dict((k, average(raw["redis"][k])) for k in titles.keys()),
+        "pydis": {k: average(raw["pydis"][k]) for k in titles},
+        "redis": {k: average(raw["redis"][k]) for k in titles},
     }
 
+
     stddev = {
-        "pydis": dict((k, standard_deviation(raw["pydis"][k])) for k in titles.keys()),
-        "redis": dict((k, standard_deviation(raw["redis"][k])) for k in titles.keys()),
+        "pydis": {k: standard_deviation(raw["pydis"][k]) for k in titles},
+        "redis": {k: standard_deviation(raw["redis"][k]) for k in titles},
     }
+
 
     print("Benchmark | pydis | redis | Ratio")
     print("--- | ---: | ---: | ---")

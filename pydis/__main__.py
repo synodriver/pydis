@@ -242,7 +242,7 @@ def main() -> int:
     server = loop.run_until_complete(coro)
 
     # Serve requests until Ctrl+C is pressed
-    print("Serving on {}".format(server.sockets[0].getsockname()))
+    print(f"Serving on {server.sockets[0].getsockname()}")
     try:
         loop.run_forever()
     except KeyboardInterrupt:
